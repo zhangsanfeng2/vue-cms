@@ -10,6 +10,10 @@ import shopcar from './components/tabbar/ShopcarContainer.vue'
 
 import search from './components/tabbar/SearchContainer.vue'
 
+import newslist from './components/news/NewsList.vue'
+
+import newsInfo from './components/news/NewsInfo.vue'
+
 
 var routerobj = new VueRouter({
     routes:[
@@ -18,6 +22,8 @@ var routerobj = new VueRouter({
         {path:"/member",component: member},
         {path:"/shopcar",component: shopcar},
         {path:"/search",component: search},
+        {path:"/home/newslist",component: newslist},
+        {path:'/home/newsinfo/:id',component: newsInfo}
 
     ],
     linkActiveClass:'mui-active'
