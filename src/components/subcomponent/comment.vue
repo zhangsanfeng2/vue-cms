@@ -2,9 +2,9 @@
     <div class="cmt-container">
         <h3>发表评论</h3>
         <hr>
-        <textarea placeholder="请输入BB内容(最多吐槽120字)" maxlength="120"></textarea>
+        <textarea placeholder="请输入BB内容(最多吐槽120字)" maxlength="120" v-model="commentMsg"></textarea>
 
-        <mt-button type="primary" size="large">发表评论</mt-button>
+        <mt-button type="primary" size="large" @click="addComment">发表评论</mt-button>
 
 
         <div class="cmt-list" v-for="(item, i) in commentlist " :key="item.add_time">
@@ -33,7 +33,8 @@ export default{
     data(){
         return {
             pageindex:1,
-            commentlist:[]
+            commentlist:[],
+            commentMsg:''
         }
     },
     created(){
@@ -54,6 +55,23 @@ export default{
             this.pageindex++;
             // console.log(this.pageindex);
             this.getComment();
+        },
+        addComment(){
+            if(this.commentMsg.length == 0){
+                return Toast("评论内容不能为空!");
+            }
+            this.$http.post('api/postcomment/'+this.$route.params.id,{content:this.commentMsg.trim()}).then(
+                function(result){
+                    if(result.body.status == 0){
+                        var cmt = { user_name:"匿名用户",add_time:Date.now(), content:this.commentMsg.trim()};
+                        this.commentlist.unshift(cmt);
+                        this.commentMsg = '';
+                        Toast("发表评论添加成功...");
+                    }else{
+                        Toast("发表评论添加失败...");
+                    }
+                }
+            );
         }
     },
     props:['id']

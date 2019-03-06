@@ -8,6 +8,7 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
 Vue.http.options.root="http://www.liulongbin.top:3005"
+Vue.http.options.emulateJSON = true;
 
 import app from './App.vue'
 
