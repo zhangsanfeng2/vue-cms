@@ -26,7 +26,7 @@ module.exports={
             {test:/\.scss$/, use:['style-loader','css-loader','sass-loader'] },
             {test:/\.(jpg|png|gif|bmp|jpeg|ttf|eot|svg|woff|woff2|otf)$/,use:'url-loader'},
             // {test:/\.(|||||)$,}
-            // {test:/\.js$/,use:'babel-loader',exclude:/node-modules/},
+            {test:/\.js$/,use:'babel-loader',exclude:/node-modules/},
             {test:/\.vue$/,use:'vue-loader'},
         ]
     },

@@ -5,16 +5,22 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --port 8090 --hot"
+    "dev": "webpack-dev-server --port 8090 --hot --host localhost"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.3.4",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.4",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
+    "@babel/preset-stage-0": "^7.0.0",
+    "@babel/runtime": "^7.0.0-beta.55",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-component": "^1.1.1",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-react-transform": "^3.0.0",
     "babel-plugin-transform-remove-strict-mode": "^0.0.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
@@ -38,6 +44,7 @@
     "mint-ui": "^2.2.13",
     "moment": "^2.24.0",
     "vue": "^2.6.8",
+    "vue-preview": "^1.1.3",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.2"
   }

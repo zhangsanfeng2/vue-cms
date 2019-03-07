@@ -32,7 +32,7 @@ export default {
     methods:{
         getNewsList(){
             this.$http.get('api/getnewslist').then(function(result){
-                console.log(result.body.message);
+                // console.log(result.body.message);
                 if(result.body.status == 0){
                     this.newslist = result.body.message;
                 }else{
